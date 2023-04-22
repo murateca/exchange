@@ -13,7 +13,4 @@ export class Share extends Model {
 
   @Column(DataType.DECIMAL(2))
   price: number;
-
-  @Column
-  lastUpdated: Date;
 }
