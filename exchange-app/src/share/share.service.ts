@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Share } from './share.entity';
 
@@ -14,6 +14,16 @@ export class ShareService {
   }
 
   async getShareById(id: number): Promise<Share> {
-    return this.shareEntity.findByPk(id);
+    return this.shareEntity.findByPk(id).then(
+      (share) => {
+        if(share == null) {
+          throw new NotFoundException();
+        }
+        return share;
+      },
+      (err) => {
+        throw new UnprocessableEntityException(err);
+      }
+    );
   }
 }

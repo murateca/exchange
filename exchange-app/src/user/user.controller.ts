@@ -1,10 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
 import { User } from './user.entity';
 import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-
   constructor(private readonly userService: UserService) {}
 
   @Get()
@@ -14,6 +13,6 @@ export class UserController {
 
   @Get(':id')
   async getById(@Param('id') id: number): Promise<User> {
-    return this.userService.getUserById(id);
+    return await this.userService.getUserById(id);
   }
 }

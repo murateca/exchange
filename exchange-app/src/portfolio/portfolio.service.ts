@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Portfolio } from './portfolio.entity';
 
@@ -14,6 +14,16 @@ export class PortfolioService {
   }
 
   async getPortfolioById(id: number): Promise<Portfolio> {
-    return this.portfolioEntity.findByPk(id);
+    return this.portfolioEntity.findByPk(id).then(
+      (portfolio) => {
+        if(portfolio == null) {
+          throw new NotFoundException();
+        }
+        return portfolio;
+      },
+      (err) => {
+        throw new UnprocessableEntityException(err);
+      }
+    );
   }
 }
