@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "c06f9ec8-01aa-4b9b-937e-c875a6e10f9f",
+		"name": "Exchange API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16338827"
+	},
+	"item": [
+		{
+			"name": "Portfolios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/portfolio",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"portfolio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Portfolio By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/portfolio/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"portfolio",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Portfolio By UserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/portfolio/user/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"portfolio",
+						"user",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/user",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/user/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shares",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/share",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"share"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Share By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/share/23",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"share",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Share",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"lorgana@mail.com\",\n    \"symbol\": \"CBO\",\n    \"quantity\": 20,\n    \"price\": 16\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/buy",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Share",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"lorgana@mail.com\",\n    \"symbol\": \"CBO\",\n    \"quantity\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/sell",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"sell"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
