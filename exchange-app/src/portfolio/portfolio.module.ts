@@ -7,6 +7,7 @@ import { PortfolioService } from './portfolio.service';
 @Module({
   imports: [SequelizeModule.forFeature([Portfolio])],
   controllers: [PortfolioController],
-  providers: [PortfolioService]
+  providers: [PortfolioService],
+  exports: [PortfolioService]
 })
 export class PortfolioModule {}

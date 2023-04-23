@@ -16,4 +16,9 @@ export class PortfolioController {
   async getById(@Param('id') id: number): Promise<Portfolio> {
     return this.portfolioService.getPortfolioById(id);
   }
+
+  @Get('/user/:userId')
+  async getByUserId(@Param('userId') userId: number): Promise<any> {
+    return this.portfolioService.getPortfolioByUserId(userId);
+  }
 }

@@ -7,6 +7,7 @@ import { Share } from './share.entity';
 @Module({
   imports: [SequelizeModule.forFeature([Share])],
   providers: [ShareService],
-  controllers: [ShareController]
+  controllers: [ShareController],
+  exports: [ShareService]
 })
 export class ShareModule {}
