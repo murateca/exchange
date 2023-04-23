@@ -8,7 +8,7 @@ export class Portfolio extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
-  portfolioId: number;
+  id: number;
 
   @ForeignKey(() => User)
   @Column

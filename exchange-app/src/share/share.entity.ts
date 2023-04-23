@@ -6,7 +6,7 @@ export class Share extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
-  shareId: number;
+  id: number;
 
   @Column(DataType.STRING(3))
   symbol: string;

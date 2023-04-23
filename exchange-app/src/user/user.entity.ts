@@ -6,7 +6,7 @@ export class User extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
-  userId: number;
+  id: number;
 
   @Column
   name: string;
