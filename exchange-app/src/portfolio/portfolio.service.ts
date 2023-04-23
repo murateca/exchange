@@ -9,6 +9,7 @@ import { ShareDto } from '../share/share.dto';
 import { PortFolioCrateDto } from './portfolio.create.dto';
 import { Portfolio } from './portfolio.entity';
 import { PortfolioGroupDto } from './portfolio.group.dto';
+import { PortfolioUpdateDto } from './portfolio.update.dto';
 
 @Injectable()
 export class PortfolioService {
@@ -80,6 +81,21 @@ export class PortfolioService {
     });
   }
 
+  async updatePortfolioRecord(
+    portfolioUpdateDto: PortfolioUpdateDto,
+  ): Promise<void> {
+    this.portfolioEntity.update(
+      {
+        quantity: portfolioUpdateDto.quantity,
+      },
+      {
+        where: {
+          id: portfolioUpdateDto.id,
+        },
+      },
+    );
+  }
+
   async createOrUpdatePortfolioRecord(
     portfolioDto: PortFolioCrateDto,
   ): Promise<Portfolio> {
@@ -90,16 +106,10 @@ export class PortfolioService {
     if (portfolioRecord == null) {
       return this.createPortfolioRecord(portfolioDto);
     } else {
-      this.portfolioEntity.update(
-        {
-          quantity: portfolioRecord.quantity + portfolioDto.quantity,
-        },
-        {
-          where: {
-            id: portfolioRecord.id,
-          },
-        },
-      );
+      this.updatePortfolioRecord({
+        id: portfolioRecord.id,
+        quantity: portfolioRecord.quantity + portfolioDto.quantity
+      });
     }
   }
 }

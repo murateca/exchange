@@ -12,6 +12,8 @@ import { Share } from './share/share.entity';
 import { Portfolio } from './portfolio/portfolio.entity';
 import { BuyService } from './buy/buy.service';
 import { BuyModule } from './buy/buy.module';
+import { SellModule } from './sell/sell.module';
+import { SellService } from './sell/sell.service';
 
 @Module({
   imports: [
@@ -28,8 +30,9 @@ import { BuyModule } from './buy/buy.module';
     PortfolioModule,
     UserModule,
     BuyModule,
+    SellModule,
   ],
   controllers: [AppController, BuyController, SellController],
-  providers: [AppService, BuyService],
+  providers: [AppService, BuyService, SellService],
 })
 export class AppModule {}

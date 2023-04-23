@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { PortFolioCrateDto } from '../portfolio/portfolio.create.dto';
 import { PortfolioService } from '../portfolio/portfolio.service';
 import { ShareService } from '../share/share.service';
 import { UserService } from '../user/user.service';
